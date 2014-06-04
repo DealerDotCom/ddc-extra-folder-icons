@@ -22,7 +22,7 @@
  * THE SOFTWARE.
  */
 
-package com.cloudbees.hudson.plugins.folder.icons;
+package com.dealer.hudson.plugins.folder.icons;
 
 import com.cloudbees.hudson.plugins.folder.Folder;
 import com.cloudbees.hudson.plugins.folder.FolderIcon;
@@ -35,13 +35,13 @@ import org.kohsuke.stapler.Stapler;
 /**
  * Default folder icon.
  */
-public class StockFolderIcon extends FolderIcon {
+public class SsbFolderIcon extends FolderIcon {
     @DataBoundConstructor
-    public StockFolderIcon() {
+    public SsbFolderIcon() {
     }
 
     public String getImageOf(String size) {
-        return Stapler.getCurrentRequest().getContextPath()+ Hudson.RESOURCE_PATH+"/images/"+size+"/folder.png";
+        return Stapler.getCurrentRequest().getContextPath()+ Hudson.RESOURCE_PATH+"/images/"+size+"/ssb.png";
     }
 
     @Override
@@ -56,7 +56,7 @@ public class StockFolderIcon extends FolderIcon {
     public static class DescriptorImpl extends FolderIconDescriptor {
         @Override
         public String getDisplayName() {
-            return "Default Icon";
+            return "SSB Icon";
         }
     }
 }
