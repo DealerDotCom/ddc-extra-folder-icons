@@ -35,28 +35,30 @@ import org.kohsuke.stapler.Stapler;
 /**
  * Default folder icon.
  */
-public class SsbFolderIcon extends FolderIcon {
-    @DataBoundConstructor
-    public SsbFolderIcon() {
+public class SmartFolderIcon extends FolderIcon {
+
+    String name;
+
+    public SmartFolderIcon() {
     }
 
     public String getImageOf(String size) {
-        return Stapler.getCurrentRequest().getContextPath()+ Hudson.RESOURCE_PATH+"/images/"+size+"/ssb.png";
+        return Stapler.getCurrentRequest().getContextPath()+ Hudson.RESOURCE_PATH+"/images/smarticons/"+name+"_"+size+".png";
     }
 
     @Override
     protected void setFolder(Folder folder) {
+        name = folder.getName().replaceAll("[^\\p{ASCII}]", "");
     }
 
     public String getDescription() {
         return "Folder";
     }
 
-    @Extension(ordinal=100)
     public static class DescriptorImpl extends FolderIconDescriptor {
         @Override
         public String getDisplayName() {
-            return "SSB Icon";
+            return "Smart Folder Icon";
         }
     }
 }
