@@ -60,7 +60,8 @@ public class SmartFolderIcon extends FolderIcon {
         return "Folder";
     }
 
-    @Extension(ordinal=100)
+    // TODO: Uncomment to enable this class.
+    //@Extension(ordinal=100)
     public static class SmartDescriptorImpl extends FolderIconDescriptor {
         @Override
         public String getDisplayName() {
