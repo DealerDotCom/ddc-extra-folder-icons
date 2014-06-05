@@ -27,16 +27,23 @@ package com.dealer.hudson.plugins.folder.icons;
 import com.cloudbees.hudson.plugins.folder.Folder;
 import com.cloudbees.hudson.plugins.folder.FolderIcon;
 import com.cloudbees.hudson.plugins.folder.FolderIconDescriptor;
+import hudson.Extension;
 import hudson.model.Hudson;
+import org.kohsuke.stapler.DataBoundConstructor;
 import org.kohsuke.stapler.Stapler;
 
 /**
- * Default folder icon.
+ * Smart folder icon.
+ *
+ * WIP - Still trying to figure out how to find the name of the folder, because
+ * {@link #setFolder(com.cloudbees.hudson.plugins.folder.Folder)} doesn't seem to be called
+ * on folder load, only on folder creation (not sure why).
  */
 public class SmartFolderIcon extends FolderIcon {
 
     String name;
 
+    @DataBoundConstructor
     public SmartFolderIcon() {
     }
 
@@ -53,6 +60,7 @@ public class SmartFolderIcon extends FolderIcon {
         return "Folder";
     }
 
+    @Extension(ordinal=100)
     public static class SmartDescriptorImpl extends FolderIconDescriptor {
         @Override
         public String getDisplayName() {

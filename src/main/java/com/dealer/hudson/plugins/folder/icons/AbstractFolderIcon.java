@@ -33,13 +33,12 @@ import org.kohsuke.stapler.DataBoundConstructor;
 import org.kohsuke.stapler.Stapler;
 
 /**
- * Default folder icon.
+ * Abstract folder icon.
  */
 public abstract class AbstractFolderIcon extends FolderIcon {
 
     String name;
 
-    @DataBoundConstructor
     public AbstractFolderIcon(String name) {
         this.name = name;
     }
@@ -57,7 +56,6 @@ public abstract class AbstractFolderIcon extends FolderIcon {
         return "Folder: " + name;
     }
 
-//    @Extension(ordinal=100)
     public static class AbstractDescriptorImpl extends FolderIconDescriptor {
         @Override
         public String getDisplayName() {
