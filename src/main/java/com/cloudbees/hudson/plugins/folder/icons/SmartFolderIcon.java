@@ -22,14 +22,12 @@
  * THE SOFTWARE.
  */
 
-package com.dealer.hudson.plugins.folder.icons;
+package com.cloudbees.hudson.plugins.folder.icons;
 
 import com.cloudbees.hudson.plugins.folder.Folder;
 import com.cloudbees.hudson.plugins.folder.FolderIcon;
 import com.cloudbees.hudson.plugins.folder.FolderIconDescriptor;
-import hudson.Extension;
 import hudson.model.Hudson;
-import org.kohsuke.stapler.DataBoundConstructor;
 import org.kohsuke.stapler.Stapler;
 
 /**
@@ -55,10 +53,10 @@ public class SmartFolderIcon extends FolderIcon {
         return "Folder";
     }
 
-    public static class DescriptorImpl extends FolderIconDescriptor {
+    public static class SmartDescriptorImpl extends FolderIconDescriptor {
         @Override
         public String getDisplayName() {
-            return "Smart Folder Icon";
+            return "Not yet implemented (correctly).";
         }
     }
 }
