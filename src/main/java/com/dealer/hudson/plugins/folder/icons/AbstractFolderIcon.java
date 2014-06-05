@@ -22,22 +22,26 @@
  * THE SOFTWARE.
  */
 
-package com.cloudbees.hudson.plugins.folder.icons;
+package com.dealer.hudson.plugins.folder.icons;
 
 import com.cloudbees.hudson.plugins.folder.Folder;
 import com.cloudbees.hudson.plugins.folder.FolderIcon;
 import com.cloudbees.hudson.plugins.folder.FolderIconDescriptor;
+import hudson.Extension;
 import hudson.model.Hudson;
+import org.kohsuke.stapler.DataBoundConstructor;
 import org.kohsuke.stapler.Stapler;
 
 /**
  * Default folder icon.
  */
-public class SmartFolderIcon extends FolderIcon {
+public abstract class AbstractFolderIcon extends FolderIcon {
 
     String name;
 
-    public SmartFolderIcon() {
+    @DataBoundConstructor
+    public AbstractFolderIcon(String name) {
+        this.name = name;
     }
 
     public String getImageOf(String size) {
@@ -50,13 +54,14 @@ public class SmartFolderIcon extends FolderIcon {
     }
 
     public String getDescription() {
-        return "Folder";
+        return "Folder: " + name;
     }
 
-    public static class SmartDescriptorImpl extends FolderIconDescriptor {
+//    @Extension(ordinal=100)
+    public static class AbstractDescriptorImpl extends FolderIconDescriptor {
         @Override
         public String getDisplayName() {
-            return "Not yet implemented (correctly).";
+            return "Abstract Folder";
         }
     }
 }
