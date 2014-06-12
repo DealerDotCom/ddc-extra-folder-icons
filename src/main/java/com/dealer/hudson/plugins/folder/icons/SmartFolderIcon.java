@@ -34,21 +34,18 @@ import org.kohsuke.stapler.Stapler;
 
 /**
  * Smart folder icon.
- *
- * WIP - Still trying to figure out how to find the name of the folder, because
- * {@link #setFolder(com.cloudbees.hudson.plugins.folder.Folder)} doesn't seem to be called
- * on folder load, only on folder creation (not sure why).
  */
 public class SmartFolderIcon extends FolderIcon {
 
     String name;
 
     @DataBoundConstructor
-    public SmartFolderIcon() {
+    public SmartFolderIcon(String name) {
+        this.name = name;
     }
 
     public String getImageOf(String size) {
-        return Stapler.getCurrentRequest().getContextPath()+ Hudson.RESOURCE_PATH+"/images/smarticons/"+name+"_"+size+".png";
+        return Stapler.getCurrentRequest().getContextPath()+ "/plugin/ddc-folder-icons/images/"+name+"_"+size+".png";
     }
 
     @Override
@@ -57,15 +54,14 @@ public class SmartFolderIcon extends FolderIcon {
     }
 
     public String getDescription() {
-        return "Folder";
+        return name + " Folder";
     }
 
-    // TODO: Uncomment to enable this class.
-    //@Extension(ordinal=100)
+    @Extension(ordinal=100)
     public static class SmartDescriptorImpl extends FolderIconDescriptor {
         @Override
         public String getDisplayName() {
-            return "Not yet implemented (correctly).";
+            return "Smart Folder";
         }
     }
 }
